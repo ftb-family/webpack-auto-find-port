@@ -21,11 +21,72 @@ A library for help webpack devserver find usable port when has port conflict.
 ```sh
 npm install webpack-auto-find-port -D
 ```
+## API
+
+param | description | default | required
+--------- | ---------- | ------ | ------
+config | Provider the webpack devserver config. | null | yes
+logger | Return the port with callback | null | no
 
 ## Usage
+```js
+const webpackBaseConfig = require('webpack-auto-find-port)
+// here is your webpack devServer config
 
+module.exports = webpackAutoFindPort({
+  config: webpackDevConfig,
+  logger: (port) => {}
+})
+
+```
+## Example
+You can run [Example demo](https://github.com/ftb-family/webpack-auto-find-port/tree/master/example)
 ```sh
- 
+cd example
+
+npm install
+
+# Now you can sperate two terminal in your local
+# Run command in each terminal
+
+npm run dev
+```
+
+[Detail config](https://github.com/ftb-family/webpack-auto-find-port/blob/master/example/build/webpack.dev.config.js#L26).
+```js
+const path = require('path')
+const chalk = require('chalk')
+const merge = require('webpack-merge')
+const webpack = require('webpack')
+const webpackBaseConfig = require('./webpack.base.config')
+// here, we import our plugin
+const webpackAutoFindPort = require('webpack-auto-find-port')
+
+const webpackDevConfig = merge(webpackBaseConfig, {
+  mode: 'development',
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: path.resolve(`${process.cwd()}`, '../dist/index.html'),
+    publicPath: '/',
+    compress: true,
+    noInfo: true,
+    disableHostCheck: true,
+    open: true,
+    inline: true,
+    port: 8080
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ]
+})
+
+// here, export our config
+module.exports = webpackAutoFindPort({
+  config: webpackDevConfig,
+  logger: (port) => {
+    console.log('P is Runing at', port)
+  }
+})
 ```
 
 ## Author
