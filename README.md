@@ -1,6 +1,6 @@
-<h1 align="center"> Wwebpack Auto Find Usable Port</h1>
-<p>
-  <img src="https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000" />
+<h1 align="center"> Webpack Auto Find Usable Port</h1>
+<p align="center">
+  <img src="https://img.shields.io/badge/version-0.0.2-blue.svg?cacheSeconds=2592000" />
   <a href=" ">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
   </a>
