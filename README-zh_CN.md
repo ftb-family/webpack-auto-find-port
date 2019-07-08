@@ -12,28 +12,29 @@
   </a>
 </p>
 
-English | [简体中文](./README-zh_CN.md)
+[English](./README.md) | 简体中文
 
-## Overview
-A library for help webpack devserver find usable port when has port conflict.
+## 前言
+一个解决启动项目时，与其他项目端口冲突的问题，自动寻找可用的端口.
 
 
-## Install
+## 安装
 
 ```sh
 npm install webpack-auto-find-port -D
 ```
+
 ## API
 
 param | description | type | required
 --------- | ---------- | ------ | ------
-config | provider the webpack devserver config. | object | yes
-logger | return the port with callback | function | no
+config | 需要提供webpack devServer 的配置信息 | object | 是
+logger | 返回当前运行在哪个端口 | function | 否
 
-## Usage
+## 使用
 ```js
 const webpackAutoFindPort = require('webpack-auto-find-port')
-// here is your webpack devServer config
+// 在下面试你的 webpackDevServer代码
 // ...code
 
 module.exports = webpackAutoFindPort({
@@ -42,27 +43,28 @@ module.exports = webpackAutoFindPort({
 })
 
 ```
-## Example
-You can run [Example demo](https://github.com/ftb-family/webpack-auto-find-port/tree/master/example)
+## 具体案例
+可以查看 [Example demo](https://github.com/ftb-family/webpack-auto-find-port/tree/master/example)
 ```sh
 cd example
 
 npm install
 
-# Now you can sperate two terminal in your local
-# Run below command in each terminal
+# 同时打开两个命令行运行example demo
+# 在每个命令行都输入启动项目的命令, 会看到端口会自动累加
 
 npm run dev
 ```
 
-[Detail config](https://github.com/ftb-family/webpack-auto-find-port/blob/master/example/build/webpack.dev.config.js#L26).
+[Demo 具体配置信息](https://github.com/ftb-family/webpack-auto-find-port/blob/master/example/build/webpack.dev.config.js#L26).
+
 ```js
 const path = require('path')
 const chalk = require('chalk')
 const merge = require('webpack-merge')
 const webpack = require('webpack')
 const webpackBaseConfig = require('./webpack.base.config')
-// here, we import our plugin
+// 加载插件
 const webpackAutoFindPort = require('webpack-auto-find-port')
 
 const webpackDevConfig = merge(webpackBaseConfig, {
@@ -83,7 +85,7 @@ const webpackDevConfig = merge(webpackBaseConfig, {
   ]
 })
 
-// here, export our config
+// 使用插件
 module.exports = webpackAutoFindPort({
   config: webpackDevConfig,
   logger: (port) => {
@@ -92,14 +94,14 @@ module.exports = webpackAutoFindPort({
 })
 ```
 
-## Author
+## 作者
 
 👤 **biyuqiwan@163.com**
 * Github: [@BiYuqi](https://github.com/BiYuqi )
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/ftb-family/webpack-auto-find-port/issues).
+欢迎贡献代码，提交issue和PR! [issues page](https://github.com/ftb-family/webpack-auto-find-port/issues).
 
 
 ## 📝 License
