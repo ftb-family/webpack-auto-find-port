@@ -1,6 +1,6 @@
 <h1 align="center"> Webpack Auto Find Usable Port</h1>
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.0.2-blue.svg?cacheSeconds=2592000" />
+  <img src="https://img.shields.io/badge/version-0.0.3-blue.svg?cacheSeconds=2592000" />
   <a href=" ">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
   </a>
@@ -34,7 +34,7 @@ logger | 返回当前运行在哪个端口 | function | 否
 ## 使用
 ```js
 const webpackAutoFindPort = require('webpack-auto-find-port')
-// 在下面试你的 webpackDevServer代码
+// 在下面是你的 webpackDevServer代码
 // ...code
 
 module.exports = webpackAutoFindPort({
