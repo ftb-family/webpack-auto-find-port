@@ -1,6 +1,6 @@
 {
   "name": "webpack-auto-find-port",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A library for help webpack devserver find usable port when has port conflict.",
   "main": "index.js",
   "scripts": {
