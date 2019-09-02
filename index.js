@@ -3,12 +3,6 @@ const portfinder = require('portfinder')
 
 const webpackAutoFindPort = async ({ config, logger }) => {
   let defaultPort = 8080
-  if (config.devServer && config.devServer.port) {
-    defaultPort = config.devServer.port
-  } else {
-    config.devServer = {}
-    config.devServer.port = defaultPort
-  }
 
   if (!config.devServer) {
     config.devServer = {}
