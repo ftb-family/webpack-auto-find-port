@@ -38,7 +38,7 @@ const webpackAutoFindPort = require('webpack-auto-find-port')
 
 module.exports = webpackAutoFindPort({
   config: webpackDevConfig,
-  logger: (port) => {}
+  logger: port => {}
 })
 
 ```
@@ -86,7 +86,7 @@ const webpackDevConfig = merge(webpackBaseConfig, {
 // here, export our config
 module.exports = webpackAutoFindPort({
   config: webpackDevConfig,
-  logger: (port) => {
+  logger: port => {
     console.log('P is Runing at', port)
   }
 })
